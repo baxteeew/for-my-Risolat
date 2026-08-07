@@ -1,5 +1,27 @@
 const startBtn = document.getElementById("startBtn");
 
+
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+
+setInterval(createHeart, 500);
+
+
 startBtn.addEventListener("click", function() {
 
     document.querySelector(".container").innerHTML = `
@@ -8,7 +30,7 @@ startBtn.addEventListener("click", function() {
         <p>
             Спасибо, что ты есть в моей жизни.
             <br><br>
-            Этот маленький сайт я сделал только для тебя.
+            Этот сайт создан только для тебя.
         </p>
 
         <button id="nextBtn">
@@ -16,18 +38,36 @@ startBtn.addEventListener("click", function() {
         </button>
     `;
 
-    const nextBtn = document.getElementById("nextBtn");
 
-    nextBtn.addEventListener("click", function() {
+    document.getElementById("nextBtn")
+    .addEventListener("click", function(){
 
         document.querySelector(".container").innerHTML = `
             <h1>Ты особенная ✨</h1>
 
             <p>
-                Среди миллионов людей я рад,
-                что встретил именно тебя ❤️
+                Каждый момент с тобой становится дороже ❤️
             </p>
+
+            <button id="finalBtn">
+                Сюрприз 🎁
+            </button>
         `;
+
+
+        document.getElementById("finalBtn")
+        .addEventListener("click", function(){
+
+            document.querySelector(".container").innerHTML = `
+                <h1>Я люблю тебя ❤️</h1>
+
+                <p>
+                    Это маленький подарок,
+                    сделанный от всего сердца.
+                </p>
+            `;
+
+        });
 
     });
 
