@@ -63,8 +63,9 @@ function loveYes() {
         .classList.remove("active");
 
     document
-        .getElementById("firstLetterPage")
+        .getElementById("secondQuestionPage")
         .classList.add("active");
+
 }
 
 // 📖 Следующая страница
