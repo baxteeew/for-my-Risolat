@@ -233,7 +233,7 @@ button:hover {
 
 .page p {
 
-    color: white;
+    color: #3b2430;
 
     font-size: 22px;
 
@@ -247,9 +247,9 @@ button:hover {
     background: #fff8f0;
 
     width: 75%;
-    max-width: 450px;
+max-width: 420px;
 
-    height: 60vh;
+height: 65vh;
 
     overflow-y: auto;
 
