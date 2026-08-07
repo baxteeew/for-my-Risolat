@@ -204,6 +204,18 @@ function secondYes() {
 
 
     document
+        .getElementById("introLetterPage")
+        .classList.add("active");
+
+}
+function openLetter() {
+
+    document
+        .getElementById("introLetterPage")
+        .classList.remove("active");
+
+
+    document
         .getElementById("firstLetterPage")
         .classList.add("active");
 
