@@ -254,3 +254,14 @@ function sweetYes() {
         .classList.add("active");
 
 }
+function showFinalPhoto() {
+
+    document
+        .getElementById("myPhotoPage")
+        .classList.remove("active");
+
+    document
+        .getElementById("moreSweetPage")
+        .classList.add("active");
+
+}
