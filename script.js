@@ -196,3 +196,15 @@ function toggleMusic() {
     }
 
 }
+function secondYes() {
+
+    document
+        .getElementById("secondQuestionPage")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("firstLetterPage")
+        .classList.add("active");
+
+}
