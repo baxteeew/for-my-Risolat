@@ -1,99 +1,18 @@
-const startBtn = document.getElementById("startBtn");
+let currentPage = 0;
+
+const pages = document.querySelectorAll(".page");
 
 
-function createHeart() {
+function nextPage() {
 
-    const heart = document.createElement("div");
+    pages[currentPage].classList.remove("active");
 
-    const hearts = [
-        "❤️",
-        "❤️‍🔥",
-        "💗",
-        "💖",
-        "💘",
-        "❣️",
-        "💕",
-        "💞"
-    ];
+    currentPage++;
 
-    heart.className = "heart";
+    if (currentPage < pages.length) {
 
-    heart.innerHTML = hearts[
-        Math.floor(Math.random() * hearts.length)
-    ];
+        pages[currentPage].classList.add("active");
 
-    heart.style.left = Math.random() * window.innerWidth + "px";
-heart.style.top = "-50px";
-    heart.style.animationDuration =
-        Math.random() * 3 + 4 + "s";
+    }
 
-    heart.style.fontSize =
-        Math.random() * 35 + 35 + "px";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 7000);
 }
-
-
-setInterval(createHeart, 500);
-
-
-startBtn.addEventListener("click", function() {
-
- document.querySelector(".container").innerHTML = `
-
-    <div class="page">
-
-        <h1>Привет, Рисолат ❤️</h1>
-
-        <p>
-            Я хочу сказать тебе кое-что важное...
-            <br><br>
-            Ты стала человеком, который делает мои дни лучше ✨
-        </p>
-
-        <button id="nextBtn">
-            Дальше 💕
-        </button>
-
-    </div>
-
-`;   
-
-
-    document.getElementById("nextBtn")
-    .addEventListener("click", function(){
-
-        document.querySelector(".container").innerHTML = `
-            <h1>Ты особенная ✨</h1>
-
-            <p>
-                Каждый момент с тобой становится дороже ❤️
-            </p>
-
-            <button id="finalBtn">
-                Сюрприз 🎁
-            </button>
-        `;
-
-
-        document.getElementById("finalBtn")
-        .addEventListener("click", function(){
-
-            document.querySelector(".container").innerHTML = `
-                <h1>Я люблю тебя ❤️</h1>
-
-                <p>
-                    Это маленький подарок,
-                    сделанный от всего сердца.
-                </p>
-            `;
-
-        });
-
-    });
-
-});
