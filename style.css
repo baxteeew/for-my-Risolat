@@ -167,6 +167,7 @@ button:hover {
 }
 
 .page {
+
     position: fixed;
 
     top: 0;
@@ -191,60 +192,70 @@ button:hover {
     visibility: hidden;
     pointer-events: none;
 
-    transform: translateX(100%) rotate(15deg);
+    /* Следующая страница приходит справа */
+    transform: translate3d(100%, 0, 0) rotate(8deg);
 
     transition:
-        transform 0.55s ease,
+        transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity 0.5s ease,
+        visibility 0s linear 0.7s;
+
+    z-index: 1;
+
+    will-change: transform, opacity;
+
+}
+
+
+.page.active {
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translate3d(0, 0, 0) rotate(0deg);
+
+    transition:
+        transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity 0.5s ease,
+        visibility 0s;
+
+    z-index: 2;
+
+}
+
+
+.page.leave-left {
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translate3d(-110%, 0, 0) rotate(-12deg);
+
+    transition:
+        transform 0.7s cubic-bezier(0.55, 0.08, 0.68, 0.53),
         opacity 0.55s ease,
-        visibility 0s linear 0.55s;
+        visibility 0s linear 0.7s;
 
     z-index: 1;
 }
 
 
-.page.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    transform: translateX(0) rotate(0deg);
-
-    transition:
-        transform 0.55s ease,
-        opacity 0.55s ease,
-        visibility 0s;
-}
-
-
-.page.leave-left {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transform: translateX(-120%) rotate(-15deg);
-
-    transition:
-        transform 0.55s ease,
-        opacity 0.55s ease,
-        visibility 0s linear 0.55s;
-
-    z-index: 0;
-}
-
-
 .page.leave-right {
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
-    transform: translateX(120%) rotate(15deg);
+    transform: translate3d(110%, 0, 0) rotate(12deg);
 
     transition:
-        transform 0.55s ease,
+        transform 0.7s cubic-bezier(0.55, 0.08, 0.68, 0.53),
         opacity 0.55s ease,
-        visibility 0s linear 0.55s;
+        visibility 0s linear 0.7s;
 
-    z-index: 0;
+    z-index: 1;
 }
 
 
