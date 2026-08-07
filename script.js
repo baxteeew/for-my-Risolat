@@ -1,134 +1,188 @@
-let currentPage = 0;
-
-const pages = document.querySelectorAll(".page");
+const pages = Array.from(document.querySelectorAll(".page"));
 
 
-// Переход на следующую страницу
-function nextPage() {
+// ================================
+// 💌 КОНВЕРТ → ВОПРОС
+// ================================
 
-    const firstLetter = document.getElementById("firstLetterPage");
+function startLove() {
 
-    if (!firstLetter) return;
+    const envelopePage =
+        document.getElementById("envelopePage");
 
-    const letterPages = Array.from(document.querySelectorAll(".page"))
-        .filter(function(page) {
+    const questionPage =
+        document.getElementById("questionPage");
 
-            return page.id !== "envelopePage" &&
-                   page.id !== "questionPage";
+    if (!envelopePage || !questionPage) return;
 
-        });
+    envelopePage.classList.remove("active");
 
-    const currentLetterIndex = letterPages.indexOf(
-        document.querySelector(".page.active")
-    );
-
-    if (currentLetterIndex === -1) return;
-
-    const oldPage = letterPages[currentLetterIndex];
-
-    oldPage.classList.remove("active");
-
-    if (currentLetterIndex % 2 === 0) {
-
-        oldPage.classList.add("leave-left");
-
-    } else {
-
-        oldPage.classList.add("leave-right");
-
-    }
-
-    const nextLetterIndex = currentLetterIndex + 1;
-
-    if (nextLetterIndex < letterPages.length) {
-
-        letterPages[nextLetterIndex].classList.add("active");
-
-    }
-
+    questionPage.classList.add("active");
 }
 
-// Нажали "Да ❤️"
+
+// ================================
+// ❤️ ДА → ПЕРВОЕ ПИСЬМО
+// ================================
+
 function loveYes() {
 
-    // Убираем вопрос
-    const questionPage = document.getElementById("questionPage");
+    const questionPage =
+        document.getElementById("questionPage");
 
-    if (questionPage) {
-        questionPage.classList.remove("active");
-    }
+    const firstLetter =
+        document.getElementById("firstLetterPage");
 
-    // Убираем active со всех страниц
+    if (!questionPage || !firstLetter) return;
+
+
+    // Скрываем вопрос
+    questionPage.classList.remove("active");
+
+
+    // Сбрасываем страницы
     pages.forEach(function(page) {
+
         page.classList.remove("active");
         page.classList.remove("leave-left");
         page.classList.remove("leave-right");
+
     });
 
-    // Открываем именно первую страницу письма
-    const firstLetter = document.getElementById("firstLetterPage");
 
-    if (firstLetter) {
-
-        firstLetter.classList.add("active");
-
-        // Находим её реальный номер
-        currentPage = Array.from(pages).indexOf(firstLetter);
-
-    }
-
+    // Показываем первое письмо
+    firstLetter.classList.add("active");
 }
 
 
-// Кнопка "Нет 😈"
-const noButton = document.getElementById("noButton");
+// ================================
+// 📖 СЛЕДУЮЩАЯ СТРАНИЦА
+// ================================
+
+function nextPage() {
+
+    const currentPage =
+        document.querySelector(".page.active");
+
+
+    if (!currentPage) return;
+
+
+    // Берём только страницы письма
+    const letterPages =
+        pages.filter(function(page) {
+
+            return (
+                page.id !== "envelopePage" &&
+                page.id !== "questionPage"
+            );
+
+        });
+
+
+    const currentIndex =
+        letterPages.indexOf(currentPage);
+
+
+    if (currentIndex === -1) return;
+
+
+    const nextIndex =
+        currentIndex + 1;
+
+
+    // Если страниц больше нет
+    if (nextIndex >= letterPages.length) {
+
+        return;
+
+    }
+
+
+    const nextPageElement =
+        letterPages[nextIndex];
+
+
+    // Убираем текущую
+    currentPage.classList.remove("active");
+
+
+    // Чередуем направление
+    if (currentIndex % 2 === 0) {
+
+        currentPage.classList.add("leave-left");
+
+    } else {
+
+        currentPage.classList.add("leave-right");
+
+    }
+
+
+    // У следующей убираем старую анимацию
+    nextPageElement.classList.remove("leave-left");
+    nextPageElement.classList.remove("leave-right");
+
+
+    // Показываем следующую
+    nextPageElement.classList.add("active");
+}
+
+
+// ================================
+// 😈 КНОПКА «НЕТ»
+// ================================
+
+const noButton =
+    document.getElementById("noButton");
 
 let noAttempts = 0;
 
+
 if (noButton) {
 
-    noButton.addEventListener("click", function () {
+    noButton.addEventListener("click", function() {
 
-        if (noAttempts < 7) {
+        if (noAttempts >= 7) return;
 
-            noAttempts++;
 
-            const maxX =
-                window.innerWidth - noButton.offsetWidth - 30;
+        noAttempts++;
 
-            const maxY =
-                window.innerHeight - noButton.offsetHeight - 30;
 
-            const x = Math.max(
-                15,
-                Math.random() * maxX
+        const maxX =
+            Math.max(
+                20,
+                window.innerWidth -
+                noButton.offsetWidth -
+                20
             );
 
-            const y = Math.max(
-                15,
-                Math.random() * maxY
+
+        const maxY =
+            Math.max(
+                20,
+                window.innerHeight -
+                noButton.offsetHeight -
+                20
             );
 
-            noButton.style.position = "fixed";
-            noButton.style.left = x + "px";
-            noButton.style.top = y + "px";
 
-        }
+        const x =
+            Math.random() * maxX;
+
+
+        const y =
+            Math.random() * maxY;
+
+
+        noButton.style.position = "fixed";
+
+        noButton.style.left =
+            x + "px";
+
+        noButton.style.top =
+            y + "px";
 
     });
-
-}
-function startLove() {
-
-    const envelopePage = document.getElementById("envelopePage");
-    const questionPage = document.getElementById("questionPage");
-
-    if (envelopePage) {
-        envelopePage.classList.remove("active");
-    }
-
-    if (questionPage) {
-        questionPage.classList.add("active");
-    }
 
 }
