@@ -53,19 +53,27 @@ function loveYes() {
 
 const noButton = document.getElementById("noButton");
 
+let noAttempts = 0;
+
 if (noButton) {
 
-    noButton.addEventListener("mouseenter", function () {
+    noButton.addEventListener("click", function () {
 
-        const maxX = window.innerWidth - noButton.offsetWidth - 20;
-        const maxY = window.innerHeight - noButton.offsetHeight - 20;
+        if (noAttempts < 10) {
 
-        const x = Math.max(10, Math.random() * maxX);
-        const y = Math.max(10, Math.random() * maxY);
+            noAttempts++;
 
-        noButton.style.position = "fixed";
-        noButton.style.left = x + "px";
-        noButton.style.top = y + "px";
+            const maxX = window.innerWidth - noButton.offsetWidth - 30;
+            const maxY = window.innerHeight - noButton.offsetHeight - 30;
+
+            const x = Math.max(15, Math.random() * maxX);
+            const y = Math.max(15, Math.random() * maxY);
+
+            noButton.style.position = "fixed";
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+
+        }
 
     });
 
