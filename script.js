@@ -1,7 +1,7 @@
 const pages = Array.from(document.querySelectorAll(".page"));
 
 
-// 💌 Конверт → вопрос
+// 💌 Конверт → вопрос + 🎵 музыка
 function startLove() {
 
     document
@@ -11,6 +11,23 @@ function startLove() {
     document
         .getElementById("questionPage")
         .classList.add("active");
+
+
+    const music =
+        document.getElementById("loveMusic");
+
+    if (music) {
+
+        music.volume = 0.7;
+
+        music.play().catch(function(error) {
+
+            console.log("Музыка не запустилась:", error);
+
+        });
+
+    }
+
 }
 
 
