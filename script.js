@@ -243,3 +243,14 @@ function startLetter() {
     }
 
 }
+function sweetYes() {
+
+    document
+        .getElementById("sweetQuestionPage")
+        .classList.remove("active");
+
+    document
+        .getElementById("myPhotoPage")
+        .classList.add("active");
+
+}
