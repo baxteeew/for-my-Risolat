@@ -148,3 +148,65 @@ button:hover {
     }
 
 }
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    opacity: 0;
+    transform: translateX(100px);
+
+    transition: 1s ease;
+
+    pointer-events: none;
+}
+
+
+.page.active {
+
+    opacity: 1;
+
+    transform: translateX(0);
+
+    pointer-events: all;
+
+}
+
+
+.page h1 {
+
+    font-size: 55px;
+
+    color: white;
+
+    margin-bottom: 25px;
+
+}
+
+
+.page p {
+
+    color: white;
+
+    font-size: 22px;
+
+    max-width: 600px;
+
+    line-height: 1.5;
+
+}
