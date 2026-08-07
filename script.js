@@ -44,13 +44,11 @@ function loveYes() {
 
     document.getElementById("questionPage").classList.remove("active");
 
-    const pages = document.querySelectorAll(".page");
-
-    pages.forEach(function(page) {
+    document.querySelectorAll(".page").forEach(function(page) {
         page.classList.remove("active");
     });
 
-    pages[2].classList.add("active");
+    document.getElementById("firstLetterPage").classList.add("active");
 
 }
 
