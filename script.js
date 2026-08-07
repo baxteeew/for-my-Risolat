@@ -29,12 +29,6 @@ function loveYes() {
 // 📖 Следующая страница
 function nextPage() {
 
-    const current =
-        document.querySelector(".page.active");
-
-    if (!current) return;
-
-
     const letterPages =
         pages.filter(function(page) {
 
@@ -44,14 +38,31 @@ function nextPage() {
         });
 
 
+    // Находим именно текущую видимую страницу
+    // (страницу, которая ещё не уехала)
+    const current =
+        letterPages.find(function(page) {
+
+            return page.classList.contains("active") &&
+                   !page.classList.contains("leave-left") &&
+                   !page.classList.contains("leave-right");
+
+        });
+
+
+    if (!current) return;
+
+
     const currentIndex =
         letterPages.indexOf(current);
+
 
     if (currentIndex === -1) return;
 
 
     const nextIndex =
         currentIndex + 1;
+
 
     if (nextIndex >= letterPages.length) return;
 
@@ -72,7 +83,7 @@ function nextPage() {
     }
 
 
-    // Новая страница появляется сразу
+    // Следующая появляется сразу
     next.classList.add("active");
 
 }
