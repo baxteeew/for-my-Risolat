@@ -560,3 +560,7 @@ button:hover {
 #musicLowPage p {
     color: black;
 }
+#sweetQuestionPage h1,
+#sweetQuestionPage button {
+    color: black;
+}
