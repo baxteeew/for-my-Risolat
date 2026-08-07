@@ -140,6 +140,52 @@ If I had to choose again, I’d choose you — every time.
 </div>
 
 </div>
+<div class="heart-rain"></div>
 
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "-20px";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animation = "fall 5s linear";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+<style>
+@keyframes fall {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+.main-photo {
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 15px #ff99bb;
+    }
+    to {
+        box-shadow: 0 0 35px #ff3366;
+    }
+}
+</style>
 </body>
 </html>
