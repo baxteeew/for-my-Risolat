@@ -145,7 +145,8 @@ If I had to choose again, I’d choose you — every time.
 <script>
 function createHeart() {
     const heart = document.createElement("div");
-    heart.innerHTML = "❤️";
+    const hearts = ["❤️‍🔥", "❤️", "💖", "💘", "💗"];
+heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
     heart.style.position = "fixed";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.top = "-20px";
