@@ -246,12 +246,12 @@ button:hover {
 
     background: #fff8f0;
 
-    width: 78%;
-    max-width: 380px;
-    aspect-ratio: 1 / 1;
+    width: 85%;
+    max-width: 450px;
+    min-height: 450px;
 
-    height: 55vh;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
 
     padding: 25px;
 
