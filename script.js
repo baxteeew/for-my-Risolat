@@ -31,11 +31,13 @@ function nextPage() {
     }
 
 }
-function startLove() {
+function loveYes() {
 
-    document.getElementById("envelopePage").classList.remove("active");
+    document.getElementById("questionPage").classList.remove("active");
 
-    document.getElementById("questionPage").classList.add("active");
+    document.getElementById("firstLetterPage").classList.add("active");
+
+    currentPage = 0;
 
 }
 
