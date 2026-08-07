@@ -317,3 +317,6 @@ button:hover {
     color: #3b2430 !important;
 
 }
+.letter p {
+    white-space: pre-line;
+}
