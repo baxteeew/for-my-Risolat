@@ -102,3 +102,25 @@ button:hover {
     }
 
 }
+.intro h1 {
+    animation: glow 2s infinite alternate;
+}
+
+
+.small-text {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+
+@keyframes glow {
+
+    from {
+        text-shadow: 0 0 10px white;
+    }
+
+    to {
+        text-shadow: 0 0 30px #ff4d6d;
+    }
+
+}
