@@ -31,3 +31,42 @@ function nextPage() {
     }
 
 }
+function startLove() {
+
+    document.getElementById("envelopePage").classList.remove("active");
+
+    document.getElementById("questionPage").classList.add("active");
+
+}
+
+
+function loveYes() {
+
+    document.getElementById("questionPage").classList.remove("active");
+
+    currentPage = 0;
+
+    showPage();
+
+}
+
+
+const noButton = document.getElementById("noButton");
+
+if (noButton) {
+
+    noButton.addEventListener("mouseenter", function () {
+
+        const maxX = window.innerWidth - noButton.offsetWidth - 20;
+        const maxY = window.innerHeight - noButton.offsetHeight - 20;
+
+        const x = Math.max(10, Math.random() * maxX);
+        const y = Math.max(10, Math.random() * maxY);
+
+        noButton.style.position = "fixed";
+        noButton.style.left = x + "px";
+        noButton.style.top = y + "px";
+
+    });
+
+}
