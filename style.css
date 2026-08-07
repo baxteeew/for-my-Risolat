@@ -564,3 +564,8 @@ button:hover {
 #sweetQuestionPage button {
     color: black;
 }
+#moreSweetPage h1,
+#moreSweetPage p,
+#moreSweetPage button {
+    color: black !important;
+}
