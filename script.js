@@ -99,3 +99,17 @@ if (noButton) {
     });
 
 }
+function startLove() {
+
+    const envelopePage = document.getElementById("envelopePage");
+    const questionPage = document.getElementById("questionPage");
+
+    if (envelopePage) {
+        envelopePage.classList.remove("active");
+    }
+
+    if (questionPage) {
+        questionPage.classList.add("active");
+    }
+
+}
