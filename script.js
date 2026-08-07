@@ -23,7 +23,7 @@ function createHeart() {
     ];
 
     heart.style.left = Math.random() * window.innerWidth + "px";
-
+heart.style.top = "-50px";
     heart.style.animationDuration =
         Math.random() * 3 + 4 + "s";
 
