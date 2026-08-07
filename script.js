@@ -26,7 +26,6 @@ function loveYes() {
         .classList.add("active");
 }
 
-
 // 📖 Следующая страница
 function nextPage() {
 
@@ -48,24 +47,36 @@ function nextPage() {
     const currentIndex =
         letterPages.indexOf(current);
 
-
     if (currentIndex === -1) return;
 
 
     const nextIndex =
         currentIndex + 1;
 
+    if (nextIndex >= letterPages.length) return;
 
-    if (nextIndex >= letterPages.length) {
-        return;
+
+    const next =
+        letterPages[nextIndex];
+
+
+    // Старая страница уезжает
+    if (currentIndex % 2 === 0) {
+
+        current.classList.add("leave-left");
+
+    } else {
+
+        current.classList.add("leave-right");
+
     }
 
 
-    current.classList.remove("active");
+    // Новая страница появляется сразу
+    next.classList.add("active");
 
-    letterPages[nextIndex]
-        .classList.add("active");
 }
+
 
 
 // 😈 Нет — убегает 7 раз
