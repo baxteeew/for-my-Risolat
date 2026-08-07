@@ -4,27 +4,51 @@ const pages = Array.from(document.querySelectorAll(".page"));
 // 💌 Конверт → вопрос + 🎵 музыка
 function startLove() {
 
-    document
-        .getElementById("envelopePage")
-        .classList.remove("active");
+    const envelopePage =
+        document.getElementById("envelopePage");
 
-    document
-        .getElementById("questionPage")
-        .classList.add("active");
-
+    const questionPage =
+        document.getElementById("questionPage");
 
     const music =
         document.getElementById("loveMusic");
 
+    const musicButton =
+        document.getElementById("musicToggle");
+
+
+    // Переходим от конверта к вопросу
+    if (envelopePage) {
+        envelopePage.classList.remove("active");
+    }
+
+    if (questionPage) {
+        questionPage.classList.add("active");
+    }
+
+
+    // 🎵 Запускаем музыку
     if (music) {
 
         music.volume = 0.7;
 
-        music.play().catch(function(error) {
+        music.play()
+            .then(function() {
 
-            console.log("Музыка не запустилась:", error);
+                // Музыка играет → показываем паузу
+                if (musicButton) {
+                    musicButton.textContent = "⏸️";
+                }
 
-        });
+            })
+            .catch(function(error) {
+
+                console.log(
+                    "Музыка не запустилась:",
+                    error
+                );
+
+            });
 
     }
 
