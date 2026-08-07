@@ -28,7 +28,7 @@ function createHeart() {
         Math.random() * 3 + 4 + "s";
 
     heart.style.fontSize =
-        Math.random() * 25 + 25 + "px";
+        Math.random() * 35 + 35 + "px";
 
     document.body.appendChild(heart);
 
