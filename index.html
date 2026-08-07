@@ -132,6 +132,12 @@ audio {
 <p>
 If I had to choose again, I’d choose you — every time.
 </p>
+<div class="final-love">
+    <h2>❤️ Навсегда твой ❤️</h2>
+    <p>
+        Спасибо, что появилась в моей жизни. Ты — моё самое красивое счастье 💖
+    </p>
+</div>    
 </div>
 
 <div class="gallery">
@@ -188,6 +194,67 @@ setInterval(createHeart, 500);
         box-shadow: 0 0 35px #ff3366;
     }
 }
+/* Плавное появление текста */
+.love-text p {
+    animation: showText 1.5s ease forwards;
+    opacity: 0;
+}
+
+.love-text p:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.love-text p:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.love-text p:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+@keyframes showText {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Красивое увеличение главного фото */
+.main-photo {
+    transition: transform 0.5s;
+}
+
+.main-photo:hover {
+    transform: scale(1.05);
+}    
+ .final-love {
+    text-align: center;
+    margin-top: 50px;
+    animation: finalShow 2s ease;
+}
+
+.final-love h2 {
+    font-size: 30px;
+}
+
+.final-love p {
+    font-size: 18px;
+}
+
+@keyframes finalShow {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}   
 </style>
 </body>
 </html>
