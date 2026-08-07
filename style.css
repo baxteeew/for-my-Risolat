@@ -580,3 +580,38 @@ button:hover {
 #moreSweetPage button {
     color: black !important;
 }
+.page.come-from-right {
+    animation: comeFromRight 0.7s ease forwards;
+}
+
+.page.come-from-left {
+    animation: comeFromLeft 0.7s ease forwards;
+}
+
+@keyframes comeFromRight {
+
+    from {
+        transform: translate3d(100%, 0, 0) rotate(8deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+}
+
+@keyframes comeFromLeft {
+
+    from {
+        transform: translate3d(-100%, 0, 0) rotate(-8deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+}
