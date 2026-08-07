@@ -43,19 +43,25 @@ setInterval(createHeart, 500);
 
 startBtn.addEventListener("click", function() {
 
-    document.querySelector(".container").innerHTML = `
-        <h1>Рисолат ❤️</h1>
+ document.querySelector(".container").innerHTML = `
+
+    <div class="page">
+
+        <h1>Привет, Рисолат ❤️</h1>
 
         <p>
-            Спасибо, что ты есть в моей жизни.
+            Я хочу сказать тебе кое-что важное...
             <br><br>
-            Этот сайт создан только для тебя.
+            Ты стала человеком, который делает мои дни лучше ✨
         </p>
 
         <button id="nextBtn">
             Дальше 💕
         </button>
-    `;
+
+    </div>
+
+`;   
 
 
     document.getElementById("nextBtn")
