@@ -145,3 +145,29 @@ if (noButton) {
     });
 
 }
+function toggleMusic() {
+
+    const music =
+        document.getElementById("loveMusic");
+
+    const button =
+        document.getElementById("musicToggle");
+
+    if (!music || !button) return;
+
+
+    if (music.paused) {
+
+        music.play();
+
+        button.textContent = "🔊";
+
+    } else {
+
+        music.pause();
+
+        button.textContent = "🔇";
+
+    }
+
+}
