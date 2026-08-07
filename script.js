@@ -80,8 +80,6 @@ function nextPage() {
         });
 
 
-    // Находим именно текущую видимую страницу
-    // (страницу, которая ещё не уехала)
     const current =
         letterPages.find(function(page) {
 
@@ -113,20 +111,42 @@ function nextPage() {
         letterPages[nextIndex];
 
 
-    // Старая страница уезжает
+    // Старая страница уходит
     if (currentIndex % 2 === 0) {
 
+        // 1 → 2: старая уходит влево
         current.classList.add("leave-left");
 
     } else {
 
+        // 2 → 3: старая уходит вправо
         current.classList.add("leave-right");
 
     }
 
 
-    // Следующая появляется сразу
+    // Следующая страница приходит
+    if (currentIndex % 2 === 0) {
+
+        next.classList.add("come-from-right");
+
+    } else {
+
+        next.classList.add("come-from-left");
+
+    }
+
+
     next.classList.add("active");
+
+
+    // После запуска анимации убираем стартовый класс
+    setTimeout(function() {
+
+        next.classList.remove("come-from-right");
+        next.classList.remove("come-from-left");
+
+    }, 50);
 
 }
 
