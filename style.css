@@ -615,3 +615,45 @@ button:hover {
     }
 
 }
+/* Следующий лист приходит справа */
+
+.page.come-right {
+    animation: comeRight 0.7s ease forwards;
+}
+
+
+/* Следующий лист приходит слева */
+
+.page.come-left {
+    animation: comeLeft 0.7s ease forwards;
+}
+
+
+@keyframes comeRight {
+
+    from {
+        transform: translate3d(110%, 0, 0) rotate(12deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes comeLeft {
+
+    from {
+        transform: translate3d(-110%, 0, 0) rotate(-12deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+}
