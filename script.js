@@ -5,9 +5,24 @@ const pages = document.querySelectorAll(".page");
 
 function nextPage() {
 
-    pages[currentPage].classList.remove("active");
+    let oldPage = pages[currentPage];
+
+    oldPage.classList.remove("active");
+
+
+    if (currentPage % 2 === 0) {
+
+        oldPage.classList.add("leave-left");
+
+    } else {
+
+        oldPage.classList.add("leave-right");
+
+    }
+
 
     currentPage++;
+
 
     if (currentPage < pages.length) {
 
