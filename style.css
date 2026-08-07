@@ -556,3 +556,7 @@ button:hover {
 #introLetterPage p {
     color: black;
 }
+#musicLowPage h1,
+#musicLowPage p {
+    color: black;
+}
