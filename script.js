@@ -160,13 +160,13 @@ function toggleMusic() {
 
         music.play();
 
-        button.textContent = "🔊";
+        button.textContent = "⏸️";
 
     } else {
 
         music.pause();
 
-        button.textContent = "🔇";
+        button.textContent = "▶️";
 
     }
 
