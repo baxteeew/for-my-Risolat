@@ -216,20 +216,17 @@ button:hover {
 
 
 .leave-left {
-
-    transform: translateX(-120%) rotate(-15deg);
-
-    opacity: 0;
-
+    transform: translateX(-120%) rotate(-15deg) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
-
 .leave-right {
-
-    transform: translateX(120%) rotate(15deg);
-
-    opacity: 0;
-
+    transform: translateX(120%) rotate(15deg) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 
