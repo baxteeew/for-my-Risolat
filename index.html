@@ -1,1 +1,106 @@
-<!DOCTYPE html><html lang='ru'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Love</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#120814;color:#fff;overflow:hidden}#bg span{position:fixed;bottom:-20px;width:8px;height:8px;background:#ff6fa8;border-radius:50%;opacity:.6;animation:up linear infinite}@keyframes up{to{transform:translateY(-110vh);opacity:0}}#wrap{display:flex;justify-content:center;align-items:center;height:100vh;padding:20px}.card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:24px;max-width:760px;text-align:center}#letter{display:none;height:100vh;overflow:auto;padding:20px}.env{font-size:90px;animation:float 2s ease-in-out infinite}@keyframes float{50%{transform:translateY(-10px)}}button{padding:12px 18px;border-radius:999px;border:0;background:#ff4f93;color:#fff}img{width:100%;border-radius:18px;margin:10px 0}</style></head><body><div id='bg'></div><div id='wrap'><div class='card' onclick='openLetter()'><div class='env'>💌</div><h2>Для самой любимой</h2><p>Нажми, чтобы открыть письмо</p></div></div><div id='letter'><div class='card'><h1>Моей любимой 🤍</h1><p><b>Здесь будет твой текст.</b></p><img src='photo1.jpg'><img src='photo2.jpg'><img src='photo3.jpg'><button onclick='reason()'>❤️ Почему я люблю тебя</button><p id='r'></p><h3 id='t'></h3></div></div><script>for(let i=0;i<40;i++){let s=document.createElement('span');s.style.left=Math.random()*100+'vw';s.style.animationDuration=(6+Math.random()*8)+'s';document.getElementById('bg').appendChild(s)}function openLetter(){wrap.style.display='none';letter.style.display='block';document.body.style.overflow='auto'}const a=['Твои глаза','Твоя улыбка','Твой голос','Твоя забота'];function reason(){r.textContent=a[Math.floor(Math.random()*a.length)]}const target=new Date('2026-12-20');setInterval(()=>{let d=Math.max(0,Math.floor((target-new Date())/86400000));t.textContent='До нашей встречи осталось: '+d+' дней ❤️'},1000);</script></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Для моей Рисолат ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: "Georgia", serif;
+    background: linear-gradient(#ffe6ee, #fff5f8);
+    color: #5c2438;
+    text-align: center;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 35px;
+    color: #d6336c;
+    animation: fadeIn 2s;
+}
+
+.main-photo {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(214,51,108,0.3);
+    margin: 20px 0;
+}
+
+.love-text {
+    background: rgba(255,255,255,0.7);
+    padding: 20px;
+    border-radius: 20px;
+    line-height: 1.8;
+    font-size: 18px;
+    text-align: left;
+}
+
+.gallery img {
+    width: 45%;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+audio {
+    margin: 20px;
+    width: 90%;
+}
+
+.heart {
+    font-size: 30px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Для моей Рисолат ❤️</h1>
+
+<div class="heart">❤️</div>
+
+<img src="IMG_5076.jpeg" class="main-photo">
+
+<audio controls>
+<source src="Song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="love-text">
+
+<!-- ТВОЙ ТЕКСТ БУДЕТ ЗДЕСЬ -->
+
+</div>
+
+<div class="gallery">
+<img src="IMG_5903.jpeg">
+<img src="IMG_5915.jpeg">
+</div>
+
+</div>
+
+</body>
+</html>
