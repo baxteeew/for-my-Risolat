@@ -1,87 +1,52 @@
 const pages = Array.from(document.querySelectorAll(".page"));
 
 
-// ================================
-// 💌 КОНВЕРТ → ВОПРОС
-// ================================
-
+// 💌 Конверт → вопрос
 function startLove() {
 
-    const envelopePage =
-        document.getElementById("envelopePage");
+    document
+        .getElementById("envelopePage")
+        .classList.remove("active");
 
-    const questionPage =
-        document.getElementById("questionPage");
-
-    if (!envelopePage || !questionPage) return;
-
-    envelopePage.classList.remove("active");
-
-    questionPage.classList.add("active");
+    document
+        .getElementById("questionPage")
+        .classList.add("active");
 }
 
 
-// ================================
-// ❤️ ДА → ПЕРВОЕ ПИСЬМО
-// ================================
-
+// ❤️ Да → первое письмо
 function loveYes() {
 
-    const questionPage =
-        document.getElementById("questionPage");
+    document
+        .getElementById("questionPage")
+        .classList.remove("active");
 
-    const firstLetter =
-        document.getElementById("firstLetterPage");
-
-    if (!questionPage || !firstLetter) return;
-
-
-    // Скрываем вопрос
-    questionPage.classList.remove("active");
-
-
-    // Сбрасываем страницы
-    pages.forEach(function(page) {
-
-        page.classList.remove("active");
-        page.classList.remove("leave-left");
-        page.classList.remove("leave-right");
-
-    });
-
-
-    // Показываем первое письмо
-    firstLetter.classList.add("active");
+    document
+        .getElementById("firstLetterPage")
+        .classList.add("active");
 }
 
 
-// ================================
-// 📖 СЛЕДУЮЩАЯ СТРАНИЦА
-// ================================
-
+// 📖 Следующая страница
 function nextPage() {
 
-    const currentPage =
+    const current =
         document.querySelector(".page.active");
 
+    if (!current) return;
 
-    if (!currentPage) return;
 
-
-    // Берём только страницы письма
     const letterPages =
         pages.filter(function(page) {
 
-            return (
-                page.id !== "envelopePage" &&
-                page.id !== "questionPage"
-            );
+            return page.id !== "envelopePage" &&
+                   page.id !== "questionPage";
 
         });
 
 
     const currentIndex =
-        letterPages.indexOf(currentPage);
+        letterPages.indexOf(current);
 
 
     if (currentIndex === -1) return;
@@ -91,48 +56,19 @@ function nextPage() {
         currentIndex + 1;
 
 
-    // Если страниц больше нет
     if (nextIndex >= letterPages.length) {
-
         return;
-
     }
 
 
-    const nextPageElement =
-        letterPages[nextIndex];
+    current.classList.remove("active");
 
-
-    // Убираем текущую
-    currentPage.classList.remove("active");
-
-
-    // Чередуем направление
-    if (currentIndex % 2 === 0) {
-
-        currentPage.classList.add("leave-left");
-
-    } else {
-
-        currentPage.classList.add("leave-right");
-
-    }
-
-
-    // У следующей убираем старую анимацию
-    nextPageElement.classList.remove("leave-left");
-    nextPageElement.classList.remove("leave-right");
-
-
-    // Показываем следующую
-    nextPageElement.classList.add("active");
+    letterPages[nextIndex]
+        .classList.add("active");
 }
 
 
-// ================================
-// 😈 КНОПКА «НЕТ»
-// ================================
-
+// 😈 Нет — убегает 7 раз
 const noButton =
     document.getElementById("noButton");
 
@@ -145,43 +81,27 @@ if (noButton) {
 
         if (noAttempts >= 7) return;
 
-
         noAttempts++;
 
 
         const maxX =
-            Math.max(
-                20,
-                window.innerWidth -
-                noButton.offsetWidth -
-                20
-            );
-
+            window.innerWidth -
+            noButton.offsetWidth -
+            20;
 
         const maxY =
-            Math.max(
-                20,
-                window.innerHeight -
-                noButton.offsetHeight -
-                20
-            );
-
-
-        const x =
-            Math.random() * maxX;
-
-
-        const y =
-            Math.random() * maxY;
+            window.innerHeight -
+            noButton.offsetHeight -
+            20;
 
 
         noButton.style.position = "fixed";
 
         noButton.style.left =
-            x + "px";
+            Math.max(10, Math.random() * maxX) + "px";
 
         noButton.style.top =
-            y + "px";
+            Math.max(10, Math.random() * maxY) + "px";
 
     });
 
