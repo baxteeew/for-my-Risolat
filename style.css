@@ -166,27 +166,87 @@ button:hover {
     height: 100%;
 }
 
-
 .page {
-    display: none !important;
+    position: fixed;
 
-    width: 100%;
-    min-height: 100vh;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
 
     box-sizing: border-box;
 
+    display: flex;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 
     text-align: center;
 
     padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(100%) rotate(15deg);
+
+    transition:
+        transform 0.55s ease,
+        opacity 0.55s ease,
+        visibility 0s linear 0.55s;
+
+    z-index: 1;
 }
 
+
 .page.active {
-    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(0) rotate(0deg);
+
+    transition:
+        transform 0.55s ease,
+        opacity 0.55s ease,
+        visibility 0s;
 }
+
+
+.page.leave-left {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(-120%) rotate(-15deg);
+
+    transition:
+        transform 0.55s ease,
+        opacity 0.55s ease,
+        visibility 0s linear 0.55s;
+
+    z-index: 0;
+}
+
+
+.page.leave-right {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(120%) rotate(15deg);
+
+    transition:
+        transform 0.55s ease,
+        opacity 0.55s ease,
+        visibility 0s linear 0.55s;
+
+    z-index: 0;
+}
+
 
 
 .page h1 {
