@@ -640,3 +640,51 @@ button:hover {
     opacity: 0;
     transition: none !important;
 }
+/* 💕 Падающие сердечки и лепестки */
+
+.falling-item {
+    position: fixed;
+    top: -50px;
+    z-index: 0;
+    pointer-events: none;
+
+    animation: fallingHeart linear forwards;
+
+    user-select: none;
+}
+
+
+@keyframes fallingHeart {
+
+    0% {
+        transform:
+            translate3d(0, -50px, 0)
+            rotate(0deg)
+            scale(1);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translate3d(40px, 55vh, 0)
+            rotate(180deg)
+            scale(1.1);
+
+        opacity: 0.9;
+    }
+
+    100% {
+        transform:
+            translate3d(-40px, 110vh, 0)
+            rotate(360deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+
+}
