@@ -272,7 +272,7 @@ button:hover {
 
 }
 .letter {
-
+    color: black;
     background: #fff8f0;
 
     width: 85%;
