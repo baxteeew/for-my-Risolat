@@ -441,3 +441,14 @@ button:hover {
     transition: 0.15s ease;
 
 }
+#questionPage .letter {
+    color: #000000;
+}
+
+#questionPage h1 {
+    color: #000000;
+}
+
+#questionPage button {
+    color: #000000;
+}
