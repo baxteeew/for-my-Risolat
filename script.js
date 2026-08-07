@@ -44,9 +44,13 @@ function loveYes() {
 
     document.getElementById("questionPage").classList.remove("active");
 
-    currentPage = 0;
+    const pages = document.querySelectorAll(".page");
 
-    showPage();
+    pages.forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    pages[2].classList.add("active");
 
 }
 
