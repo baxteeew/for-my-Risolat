@@ -276,3 +276,44 @@ function showFinalPhoto() {
         .classList.add("active");
 
 }
+// 💕 Падающие сердечки
+
+function createFallingItem() {
+
+    const item = document.createElement("div");
+
+    const symbols = ["❤️", "💕", "🌸", "✨", "💗"];
+
+    item.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    item.className = "falling-item";
+
+    item.style.left =
+        Math.random() * 100 + "vw";
+
+    item.style.fontSize =
+        (12 + Math.random() * 14) + "px";
+
+    item.style.animationDuration =
+        (5 + Math.random() * 4) + "s";
+
+    document.body.appendChild(item);
+
+
+    setTimeout(function() {
+
+        item.remove();
+
+    }, 10000);
+
+}
+
+
+// Создаём новый падающий элемент каждые 700 мс
+
+setInterval(function() {
+
+    createFallingItem();
+
+}, 700);
