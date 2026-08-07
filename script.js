@@ -6,28 +6,47 @@ const pages = document.querySelectorAll(".page");
 // Переход на следующую страницу
 function nextPage() {
 
-    const oldPage = pages[currentPage];
+    const firstLetter = document.getElementById("firstLetterPage");
 
-    if (!oldPage) return;
+    if (!firstLetter) return;
+
+    const letterPages = Array.from(document.querySelectorAll(".page"))
+        .filter(function(page) {
+
+            return page.id !== "envelopePage" &&
+                   page.id !== "questionPage";
+
+        });
+
+    const currentLetterIndex = letterPages.indexOf(
+        document.querySelector(".page.active")
+    );
+
+    if (currentLetterIndex === -1) return;
+
+    const oldPage = letterPages[currentLetterIndex];
 
     oldPage.classList.remove("active");
 
-    if (currentPage % 2 === 0) {
+    if (currentLetterIndex % 2 === 0) {
+
         oldPage.classList.add("leave-left");
+
     } else {
+
         oldPage.classList.add("leave-right");
+
     }
 
-    currentPage++;
+    const nextLetterIndex = currentLetterIndex + 1;
 
-    if (currentPage < pages.length) {
+    if (nextLetterIndex < letterPages.length) {
 
-        pages[currentPage].classList.add("active");
+        letterPages[nextLetterIndex].classList.add("active");
 
     }
 
 }
-
 
 // Нажали "Да ❤️"
 function loveYes() {
