@@ -128,7 +128,12 @@ function nextPage() {
     }
 
     next.classList.add("active");
+    setTimeout(function() {
 
+    next.classList.remove("come-right");
+    next.classList.remove("come-left");
+
+}, 50);
 
     /* Убираем класс после запуска анимации */
 
