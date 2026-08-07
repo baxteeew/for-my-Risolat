@@ -216,7 +216,30 @@ function openLetter() {
 
 
     document
+        .getElementById("musicLowPage")
+        .classList.add("active");
+
+}
+function startLetter() {
+
+    document
+        .getElementById("musicLowPage")
+        .classList.remove("active");
+
+
+    document
         .getElementById("firstLetterPage")
         .classList.add("active");
+
+
+    const music =
+        document.getElementById("loveMusic");
+
+
+    if (music) {
+
+        music.volume = 0.3;
+
+    }
 
 }
