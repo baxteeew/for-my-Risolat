@@ -257,11 +257,11 @@ function sweetYes() {
 function showFinalPhoto() {
 
     document
-        .getElementById("myPhotoPage")
+        .getElementById("moreSweetPage")
         .classList.remove("active");
 
     document
-        .getElementById("moreSweetPage")
+        .getElementById("finalPhotoPage")
         .classList.add("active");
 
 }
