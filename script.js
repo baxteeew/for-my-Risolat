@@ -71,82 +71,73 @@ function loveYes() {
 // 📖 Следующая страница
 function nextPage() {
 
-    const letterPages =
-        pages.filter(function(page) {
+    const letterPages = pages.filter(function(page) {
 
-            return page.id !== "envelopePage" &&
-                   page.id !== "questionPage";
+        return page.id !== "envelopePage" &&
+               page.id !== "questionPage";
 
-        });
+    });
 
+    const current = letterPages.find(function(page) {
 
-    const current =
-        letterPages.find(function(page) {
+        return page.classList.contains("active") &&
+               !page.classList.contains("leave-left") &&
+               !page.classList.contains("leave-right");
 
-            return page.classList.contains("active") &&
-                   !page.classList.contains("leave-left") &&
-                   !page.classList.contains("leave-right");
-
-        });
-
+    });
 
     if (!current) return;
 
-
-    const currentIndex =
-        letterPages.indexOf(current);
-
+    const currentIndex = letterPages.indexOf(current);
 
     if (currentIndex === -1) return;
 
-
-    const nextIndex =
-        currentIndex + 1;
-
+    const nextIndex = currentIndex + 1;
 
     if (nextIndex >= letterPages.length) return;
 
-
-    const next =
-        letterPages[nextIndex];
+    const next = letterPages[nextIndex];
 
 
-    // Старая страница уходит
+    /* Старая страница уезжает */
+
     if (currentIndex % 2 === 0) {
 
-        // 1 → 2: старая уходит влево
         current.classList.add("leave-left");
 
     } else {
 
-        // 2 → 3: старая уходит вправо
         current.classList.add("leave-right");
 
     }
 
 
-    // Следующая страница приходит
+    /* Следующая страница приходит */
+
+    next.classList.remove("come-right");
+    next.classList.remove("come-left");
+
     if (currentIndex % 2 === 0) {
 
-        next.classList.add("come-from-right");
+        next.classList.add("come-right");
 
     } else {
 
-        next.classList.add("come-from-left");
+        next.classList.add("come-left");
 
     }
-
 
     next.classList.add("active");
 
 
-    // После запуска анимации убираем стартовый класс
+    /* Убираем класс после запуска анимации */
+
     setTimeout(function() {
 
-        next.classList.remove("come-from-right");
-        next.classList.remove("come-from-left");
+        next.classList.remove("come-right");
+        next.classList.remove("come-left");
 
-    }, 50);
+    }, 700);
 
 }
 
