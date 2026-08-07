@@ -516,3 +516,37 @@ button:hover {
 #questionPage h1 {
     color: #000 !important;
 }
+.music-toggle {
+
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    font-size: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    padding: 0;
+}
+
+
+.music-toggle:active {
+    transform: scale(0.9);
+}
