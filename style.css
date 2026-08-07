@@ -624,36 +624,19 @@ button:hover {
 
 /* Следующий лист приходит слева */
 
+/* Следующая страница приходит справа */
+
+.page.come-right {
+    transform: translate3d(100%, 0, 0) rotate(12deg);
+    opacity: 0;
+    transition: none !important;
+}
+
+
+/* Следующая страница приходит слева */
+
 .page.come-left {
-    animation: comeLeft 0.7s ease forwards;
-}
-
-
-@keyframes comeRight {
-
-    from {
-        transform: translate3d(110%, 0, 0) rotate(12deg);
-        opacity: 0;
-    }
-
-    to {
-        transform: translate3d(0, 0, 0) rotate(0deg);
-        opacity: 1;
-    }
-
-}
-
-
-@keyframes comeLeft {
-
-    from {
-        transform: translate3d(-110%, 0, 0) rotate(-12deg);
-        opacity: 0;
-    }
-
-    to {
-        transform: translate3d(0, 0, 0) rotate(0deg);
-        opacity: 1;
-    }
-
+    transform: translate3d(-100%, 0, 0) rotate(-12deg);
+    opacity: 0;
+    transition: none !important;
 }
