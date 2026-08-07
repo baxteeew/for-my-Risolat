@@ -59,7 +59,7 @@ if (noButton) {
 
     noButton.addEventListener("click", function () {
 
-        if (noAttempts < 10) {
+        if (noAttempts < 5) {
 
             noAttempts++;
 
